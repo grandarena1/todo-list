@@ -1,8 +1,16 @@
+/* Universal */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    font-family: Helvetica, sans-serif;
+}
+
+/* General structure */
 
 .container {
     display: grid;
@@ -12,14 +20,36 @@
     grid-template-columns: 1.25fr 4fr;
 }
 
-.projects-list {
-    background-color: #373c3f;
-    grid-row: 1 / 3;
-    grid-column: 1;
-}
-
 .projects-window {
     background-color: #2f3437;
     grid-column: 2;
     grid-row: 1 / 3;
+}
+
+/* Left window */
+
+.left-side {
+    background-color: #373c3f;
+}
+
+.projects-list-upper-left {
+    display: flex;
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+}
+
+h2 {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+hr.solid {
+    border-top: 1px solid #bbb;
+    width: 50%;
 }
