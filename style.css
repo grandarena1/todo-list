@@ -54,9 +54,102 @@ hr.solid {
     align-items: center;
 }
 
+.project {
+    background-color: #444a4d;
+}
+
 /* Right window */
+
 .projects-window-upper-right {
     background-color: #2f3437;
     grid-column: 2;
     grid-row: 1 / 3;
+}
+
+.projects-window-lower-right {
+    grid-column: 2;
+    grid-row: 2 / 3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Buttons */
+
+.add-project-btn-container {
+    padding: 10px;
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+.add-project-btn-container:hover {
+    background-color: #444a4d;
+}
+
+.add-project-text {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+.add-project-plus {
+    font-weight: bold;
+    font-size: 28px;
+    color: green;
+}
+
+/* Form */
+
+.project-form {
+    background-color: #3f4447;
+    border: 2px solid hsla(0,0%,100%,.5);
+    border-radius: 10px;
+    width: 600px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-heading {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+}
+
+.form-name {
+    margin-bottom: 20px;
+}
+
+.form-description {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Shared */
+
+.hidden {
+    display: none;
+}
+
+.button {
+    padding: 10px;
+    cursor: pointer;
+    margin: 20px;
+    width: 150px;
+    background-color: #444a4d;
+    border-radius: 10px;
+    border: 2px solid hsla(0,0%,100%,.5);
+    text-align: center;
 }
