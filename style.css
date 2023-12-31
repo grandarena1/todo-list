@@ -53,3 +53,9 @@ hr.solid {
     border-top: 1px solid #bbb;
     width: 50%;
 }
+
+.projects-list-lower-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
