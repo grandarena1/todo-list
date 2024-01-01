@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
     <link href="./style.css" rel="stylesheet">
-    <script src="./app.js"></script>
+    <script type="module" src="./app.js"></script>
+    <script src="https://kit.fontawesome.com/73eec5064c.js" crossorigin="anonymous"></script>
 </head>
     <body>
         <div class="container">
@@ -14,11 +15,10 @@
                 <hr class="solid">
             </div>
             <div class="projects-list-lower-left left-side">
-                <h2>Projects</h2>
-                <h2>Projectssfsfs</h2>
-                <h2>Projectssfsfs</h2>
-                <h2>Projectssfsfs</h2>
-                <h2>Projectssfsfs</h2>
+                <div class="project">
+                    <h2>New Project</h2>
+                    <i class="fa-regular fa-trash-can" style="color: #ffffff;"></i>
+                </div>
                 <div class="add-project-btn-container">
                     <p class="add-project-text">
                         <span class="add-project-plus">+</span>
@@ -33,17 +33,17 @@
                 <div class="project-form">
                     <div class="form-name">
                         <h3 class="form-heading">Project Name</h3>
-                        <input type="text" placeholder="Enter project name" required minlength="1" maxlength="36">
+                        <input class="form-title-input" type="text" placeholder="Enter project name" required minlength="1" maxlength="36">
                     </div>
                     <div class="form-description">
                         <h3 class="form-heading">Project Description</h3>
-                        <textarea placeholder="Enter project description" required minlength="1" maxLength="168" cols="40" rows="4"></textarea>
+                        <textarea class="form-description-input" placeholder="Enter project description" required minlength="1" maxLength="168" cols="40" rows="4"></textarea>
                     </div>
                     <div class="form-buttons">
-                        <div class="button">
+                        <div id="confirm-add-btn" class="button">
                             Add
                         </div>
-                        <div class="button">
+                        <div id="cancel-btn" class="button">
                             Cancel
                         </div>
                     </div>

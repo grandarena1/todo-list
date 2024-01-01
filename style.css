@@ -37,7 +37,7 @@ body {
     height: 100%;
 }
 
-h2 {
+h2, .project{
     color: white;
     font-weight: bold;
     font-size: 24px;
@@ -55,7 +55,13 @@ hr.solid {
 }
 
 .project {
+    display: flex;
+    justify-content: space-between;
     background-color: #444a4d;
+    padding: 10px;
+    width: 75%;
+    text-align: left;
+    margin-bottom: 10px;
 }
 
 /* Right window */
@@ -149,7 +155,13 @@ hr.solid {
     margin: 20px;
     width: 150px;
     background-color: #444a4d;
+    color: white;
+    font-weight: bold;
     border-radius: 10px;
     border: 2px solid hsla(0,0%,100%,.5);
     text-align: center;
+}
+
+.button:hover {
+    background-color: #2f3437;
 }
