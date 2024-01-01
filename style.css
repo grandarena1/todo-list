@@ -8,6 +8,7 @@
 
 body {
     font-family: Helvetica, sans-serif;
+    background-color: #373c3f;
 }
 
 /* General structure */
@@ -52,6 +53,13 @@ hr.solid {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-height: 95%;
+    overflow-y: auto;
+}
+
+.projects-container {
+    overflow-y: auto;
+    width: 75%;
 }
 
 .project {
@@ -59,7 +67,7 @@ hr.solid {
     justify-content: space-between;
     background-color: #444a4d;
     padding: 10px;
-    width: 75%;
+    width: 100%;
     text-align: left;
     margin-bottom: 10px;
 }
@@ -105,6 +113,11 @@ hr.solid {
     font-weight: bold;
     font-size: 28px;
     color: green;
+}
+
+.delete-project:hover {
+    color: #bb2424;
+    cursor: pointer;
 }
 
 /* Form */

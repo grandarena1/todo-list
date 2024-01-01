@@ -1,5 +1,8 @@
 import { Project } from "./project.js";
 
+//Containers
+const projectContainer = document.getElementsByClassName('projects-container')[0];
+
 //Buttons
 const addProjectButton = document.getElementsByClassName('add-project-btn-container')[0];
 addProjectButton.addEventListener('click', () => displayForm());
@@ -9,6 +12,11 @@ confirmAddButton.addEventListener('click', () => createProject());
 
 const cancelButton = document.getElementById('cancel-btn');
 cancelButton.addEventListener('click', () => hideForm());
+
+//Default project
+const defaultProjectContainer = document.getElementsByClassName('project')[0];
+const defaultProjectRemoveButton = document.getElementsByClassName('delete-project')[0];
+defaultProjectRemoveButton.addEventListener('click', () => projectContainer.removeChild(defaultProjectContainer));
 
 //Form UI
 const formContainer = document.getElementsByClassName('project-form')[0];
