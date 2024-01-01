@@ -1,4 +1,5 @@
 import { Project } from "./project.js";
+import { TodoItem } from "./todoitem.js";
 
 //Containers
 let projects = [];
@@ -8,18 +9,17 @@ const addProjectButton = document.getElementsByClassName('add-project-btn-contai
 addProjectButton.addEventListener('click', () => displayForm('project'));
 
 const confirmAddButton = document.getElementById('confirm-add-btn');
-confirmAddButton.addEventListener('click', () => createProject('project'));
+confirmAddButton.addEventListener('click', () => create('project'));
 
 const cancelButton = document.getElementById('cancel-btn');
 cancelButton.addEventListener('click', () => hideForm('project'));
 
 //Task form
-
 const addItemButton = document.getElementsByClassName('add-todo-item-btn')[0];
 addItemButton.addEventListener('click', () => displayForm('task'));
 
 const taskConfirmAddButton = document.getElementById('task-confirm-add-btn');
-taskConfirmAddButton.addEventListener('click', () => createProject('task'));
+taskConfirmAddButton.addEventListener('click', () => create('task'));
 
 const taskFormCancelButton = document.getElementById('task-cancel-btn');
 taskFormCancelButton.addEventListener('click', () => hideForm('task'));
@@ -35,6 +35,10 @@ const projectName = document.getElementsByClassName('form-title-input')[0];
 const projectDescription = document.getElementsByClassName('form-description-input')[0];
 
 const itemFormContainer = document.getElementsByClassName('item-form')[0];
+const taskName = document.getElementsByClassName('form-task-title-input')[0];
+const taskDescription = document.getElementsByClassName('form-task-description-input')[0];
+const taskDate = document.getElementsByClassName('form-task-date-input')[0];
+const taskPriority = document.getElementsByClassName('form-task-priority-input')[0];
 
 //Initialisation
 console.log(projects.length);
@@ -64,11 +68,13 @@ function hideForm(action) {
 function resetForm() {
     projectName.value = '';
     projectDescription.value = '';
+    taskName.value = '';
+    taskDescription.value = '';
 }
 
-function createProject(action) {
-    if(isValid()) {
-        if(action === 'project') {
+function create(action) {
+    if(action === 'project') {
+        if(isValid('project')) {
             const newProject = new Project(projectName.value, projectDescription.value);
             newProject.setupUI();
             projects.push(newProject);
@@ -77,21 +83,39 @@ function createProject(action) {
             hideForm('project');
             console.log('Current projects: ' + projects.length);
         }
-        else if(action === 'task') {
-
+        else {
+            alert('please doob');
         }
     }
-    else {
-        alert('please doob');
+    else if(action === 'task') {
+        if(isValid('task')) {
+            const newTask = new TodoItem(taskName.value, taskDescription.value, taskDate.value, taskPriority.value);
+            //SETUP UI AND STUFF
+            console.log('Created new task: ' + newTask.name + ' / ' + newTask.description + ' / ' + newTask._date + ' / ' + newTask.priority);
+            hideForm('task');
+        }
+        else {
+            alert('please doob');
+        }
     }
 }
 
-function isValid() {
-    if(projectName.value.length >= 1 && projectName.value.length <= 20 && projectDescription.value.length >= 1 && projectDescription.value.length <= 83) {
-        return true;
+function isValid(action) {
+    if(action === 'project') {
+        if(projectName.value.length >= 1 && projectName.value.length <= 20 
+            && projectDescription.value.length >= 1 && projectDescription.value.length <= 83) {
+            return true;
+        }
     }
+    else if(action === 'task') {
+        if(taskName.value.length >= 1 && taskName.value.length <= 20 
+            && taskDescription.value.length >= 1 && taskDescription.value.length <= 83
+            && taskDate.value && taskPriority.value) {
+        return true;
+        }
 
-    return false;
+        return false;
+    }
 }
 
 export { projects };

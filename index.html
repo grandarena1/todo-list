@@ -28,11 +28,11 @@
             </div>
             <div class="projects-window-lower-right">
                 <div class="project-form hidden">
-                    <div class="form-name">
+                    <div class="form-ui">
                         <h3 class="form-heading">Project Name</h3>
                         <input class="form-title-input" type="text" placeholder="Enter project name" required minlength="1" maxlength="20">
                     </div>
-                    <div class="form-description">
+                    <div class="form-ui">
                         <h3 class="form-heading">Project Description</h3>
                         <textarea class="form-description-input" placeholder="Enter project description" required minlength="1" maxLength="83" cols="40" rows="4"></textarea>
                     </div>
@@ -47,13 +47,25 @@
                 </div>
                 
                 <div class="item-form hidden">
-                    <div class="form-name">
+                    <div class="form-ui">
                         <h3 class="form-heading">Task Name</h3>
-                        <input class="form-title-input" type="text" placeholder="Enter task name" required minlength="1" maxlength="20">
+                        <input class="form-task-title-input" type="text" placeholder="Enter task name" required minlength="1" maxlength="20">
                     </div>
-                    <div class="Task Description">
-                        <h3 class="form-heading">Task Description</h3>
-                        <textarea class="form-description-input" placeholder="Enter task description" required minlength="1" maxLength="83" cols="40" rows="4"></textarea>
+                    <div class="form-ui">
+                        <h3 class="form-description form-heading">Task Description</h3>
+                        <textarea class="form-task-description-input" placeholder="Enter task description" required minlength="1" maxLength="83" cols="40" rows="4"></textarea>
+                    </div>
+                    <div class="form-ui">
+                        <h3 class="form-heading form-date">Task Due Date</h3>
+                        <input class="form-task-date-input" type="date" required>
+                    </div>
+                    <div class="form-ui">
+                        <h3 class="form-heading form-priority">Task Priority</h3>
+                        <select class="form-task-priority-input" required>
+                            <option value="low">Low</option>
+                            <option value="mid">Mid</option>
+                            <option value="high">High</option>
+                        </select>
                     </div>
                     <div class="form-buttons">
                         <div id="task-confirm-add-btn" class="button">

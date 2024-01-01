@@ -198,18 +198,22 @@ hr.solid {
     font-size: 30px;
 }
 
-.form-name {
-    margin-bottom: 20px;
-}
-
-.form-description {
-    margin-top: 20px;
-    margin-bottom: 20px;
+.form-ui {
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .form-buttons {
     display: flex;
     justify-content: center;
+    width: 100%;
+}
+
+.form-task-description-input, .form-task-date-input, .form-task-priority-input {
+    margin-bottom: 15px;
+}
+
+.form-task-date-input, .form-task-priority-input {
     width: 100%;
 }
 
