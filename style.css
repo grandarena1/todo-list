@@ -33,9 +33,13 @@ body {
     grid-column: 1 / 1;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 100%;
     height: 100%;
+}
+
+.top-left-header {
+    padding-bottom: 10px;
 }
 
 h2, .project{
@@ -82,10 +86,22 @@ hr.solid {
 .projects-window-upper-right {
     background-color: #2f3437;
     grid-column: 2;
-    grid-row: 1 / 3;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-header {
+    color: white;
+    font-weight: bold;
+    padding-left: 70px;
+    display: flex;
+    flex-direction: column;
 }
 
 .projects-window-lower-right {
+    background-color: #2f3437;
     grid-column: 2;
     grid-row: 2 / 3;
     width: 100%;
@@ -165,6 +181,10 @@ hr.solid {
 
 .hidden {
     display: none;
+}
+
+.highlighted {
+    background-color: #444a4d;
 }
 
 .button {

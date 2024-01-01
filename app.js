@@ -26,7 +26,7 @@ const projectDescription = document.getElementsByClassName('form-description-inp
 
 //Initialisation
 console.log(projects.length);
-defaultProjectContainer.changeProject(defaultProjectContainer.container);
+defaultProjectContainer.changeProject();
 
 //Form functions
 function displayForm() {
@@ -48,7 +48,7 @@ function createProject() {
         const newProject = new Project(projectName.value, projectDescription.value);
         newProject.setupUI();
         projects.push(newProject);
-        newProject.changeProject(newProject.container);
+        newProject.changeProject();
         console.log('Created new project: ' + newProject.name + ' / ' + newProject.description);
         hideForm();
         console.log('Current projects: ' + projects.length);
@@ -59,7 +59,7 @@ function createProject() {
 }
 
 function isValid() {
-    if(projectName.value.length >= 1 && projectName.value.length <= 36 && projectDescription.value.length >= 1 && projectDescription.value.length <= 168) {
+    if(projectName.value.length >= 1 && projectName.value.length <= 20 && projectDescription.value.length >= 1 && projectDescription.value.length <= 83) {
         return true;
     }
 
