@@ -172,16 +172,23 @@ hr.solid {
 
 /* Form */
 
-.project-form {
-    background-color: #3f4447;
+.project-form, .item-form {
+    background: radial-gradient(ellipse at center, hsl(203, 6%, 26%) 0%, rgba(0, 0, 0, 0.836) 100%);
     border: 2px solid hsla(0,0%,100%,.5);
     border-radius: 10px;
-    width: 600px;
-    height: 450px;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
 }
 
 .form-heading {
