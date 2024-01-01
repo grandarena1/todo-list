@@ -111,6 +111,35 @@ hr.solid {
     align-items: flex-start;
 }
 
+.todo-items-container {
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    width: 100%;
+    margin-left: 50px;
+    overflow-y: auto;
+}
+
+.add-todo-item-btn {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 15px;
+    margin-bottom: 20px;
+    min-width: 15%;
+    width: 15%;
+    background-color: #444a4d;
+    padding: 5px;
+}
+
+.add-todo-item-btn:hover {
+    background-color: #555349;
+    cursor: pointer;
+}
+
+.todo-item {
+    margin: 15px;
+}
+
 /* Buttons */
 
 .add-project-btn-container {
