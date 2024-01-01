@@ -65,11 +65,16 @@ hr.solid {
 .project {
     display: flex;
     justify-content: space-between;
-    background-color: #444a4d;
+    background-color: #373c3f;
     padding: 10px;
     width: 100%;
     text-align: left;
     margin-bottom: 10px;
+}
+
+.project:hover {
+    background-color: #444a4d;
+    cursor: pointer;
 }
 
 /* Right window */

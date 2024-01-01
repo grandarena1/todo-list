@@ -2,6 +2,7 @@ import { Project } from "./project.js";
 
 //Containers
 const projectContainer = document.getElementsByClassName('projects-container')[0];
+let projects = [];
 
 //Buttons
 const addProjectButton = document.getElementsByClassName('add-project-btn-container')[0];
@@ -14,14 +15,18 @@ const cancelButton = document.getElementById('cancel-btn');
 cancelButton.addEventListener('click', () => hideForm());
 
 //Default project
-const defaultProjectContainer = document.getElementsByClassName('project')[0];
-const defaultProjectRemoveButton = document.getElementsByClassName('delete-project')[0];
-defaultProjectRemoveButton.addEventListener('click', () => projectContainer.removeChild(defaultProjectContainer));
+const defaultProjectContainer = new Project("Default Project", "Default Description");
+defaultProjectContainer.setupUI();
+projects.push(defaultProjectContainer);
 
 //Form UI
 const formContainer = document.getElementsByClassName('project-form')[0];
 const projectName = document.getElementsByClassName('form-title-input')[0];
 const projectDescription = document.getElementsByClassName('form-description-input')[0];
+
+//Initialisation
+console.log(projects.length);
+defaultProjectContainer.changeProject(defaultProjectContainer.container);
 
 //Form functions
 function displayForm() {
@@ -42,8 +47,11 @@ function createProject() {
     if(isValid()) {
         const newProject = new Project(projectName.value, projectDescription.value);
         newProject.setupUI();
-        console.log(newProject.name + ' ' + newProject.description);
+        projects.push(newProject);
+        newProject.changeProject(newProject.container);
+        console.log('Created new project: ' + newProject.name + ' / ' + newProject.description);
         hideForm();
+        console.log('Current projects: ' + projects.length);
     }
     else {
         alert('please doob');
@@ -57,3 +65,5 @@ function isValid() {
 
     return false;
 }
+
+export { projects };
