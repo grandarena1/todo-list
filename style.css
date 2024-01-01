@@ -109,6 +109,7 @@ hr.solid {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    overflow-y: auto;
 }
 
 .todo-items-container {
@@ -118,6 +119,7 @@ hr.solid {
     width: 100%;
     margin-left: 50px;
     overflow-y: auto;
+    padding-right: 15px;
 }
 
 .add-todo-item-btn {
@@ -137,7 +139,27 @@ hr.solid {
 }
 
 .todo-item {
+    display: flex;
+    flex-direction: column;
     margin: 15px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid #444a4d;
+}
+
+.task-heading {
+    color: black;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 2.75px;
+    margin-top: 15px;
+}
+
+.task-field {
+    letter-spacing: normal;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 /* Buttons */

@@ -70,6 +70,7 @@ function resetForm() {
     projectDescription.value = '';
     taskName.value = '';
     taskDescription.value = '';
+    taskDate.value = '';
 }
 
 function create(action) {
@@ -90,7 +91,7 @@ function create(action) {
     else if(action === 'task') {
         if(isValid('task')) {
             const newTask = new TodoItem(taskName.value, taskDescription.value, taskDate.value, taskPriority.value);
-            //SETUP UI AND STUFF
+            newTask.setupUI();
             console.log('Created new task: ' + newTask.name + ' / ' + newTask.description + ' / ' + newTask._date + ' / ' + newTask.priority);
             hideForm('task');
         }
