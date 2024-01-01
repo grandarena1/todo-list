@@ -6,6 +6,7 @@ class TodoItem {
         this._priority = priority;
 
         this._container = document.getElementsByClassName('todo-items-container')[0];
+        this._todoItemDiv = document.createElement('div');
     }
 
     get name() {
@@ -25,14 +26,19 @@ class TodoItem {
     }
 
     setupUI() {
-        const todoItemDiv = document.createElement('div');
-        todoItemDiv.classList.add('todo-item');
+        this._todoItemDiv.classList.add('todo-item');
+
+        //Remove task
+        const removeBtn = document.createElement('i');
+        removeBtn.classList.add('delete-project', 'fa-regular', 'fa-trash-can');
+        removeBtn.addEventListener('click', () => this.removeItem());
+        this._todoItemDiv.prepend(removeBtn);
 
         //Task name
         const todoItemNameHeader = document.createElement('h3');
         todoItemNameHeader.classList.add('task-heading');
         todoItemNameHeader.textContent = 'TASK NAME';
-        todoItemDiv.appendChild(todoItemNameHeader);
+        this._todoItemDiv.appendChild(todoItemNameHeader);
 
         const todoItemNameValue = document.createElement('h3');
         todoItemNameValue.classList.add('task-field');
@@ -43,7 +49,7 @@ class TodoItem {
         const todoItemDescriptionHeader = document.createElement('h3');
         todoItemDescriptionHeader.classList.add('task-heading');
         todoItemDescriptionHeader.textContent = 'TASK DESCRIPTION';
-        todoItemDiv.appendChild(todoItemDescriptionHeader);
+        this._todoItemDiv.appendChild(todoItemDescriptionHeader);
 
         const todoItemDescriptionValue = document.createElement('h3');
         todoItemDescriptionValue.classList.add('task-field');
@@ -54,7 +60,7 @@ class TodoItem {
         const todoItemDateHeader = document.createElement('h3');
         todoItemDateHeader.classList.add('task-heading');
         todoItemDateHeader.textContent = 'TASK DUE DATE';
-        todoItemDiv.appendChild(todoItemDateHeader);
+        this._todoItemDiv.appendChild(todoItemDateHeader);
 
         const todoItemDateValue = document.createElement('h3');
         todoItemDateValue.classList.add('task-field');
@@ -65,14 +71,18 @@ class TodoItem {
         const todoItemPriorityHeader = document.createElement('h3');
         todoItemPriorityHeader.classList.add('task-heading');
         todoItemPriorityHeader.textContent = 'TASK PRIORITY';
-        todoItemDiv.appendChild(todoItemPriorityHeader);
+        this._todoItemDiv.appendChild(todoItemPriorityHeader);
 
         const todoItemPriorityValue = document.createElement('h3');
         todoItemPriorityValue.classList.add('task-field');
         todoItemPriorityValue.textContent = this._priority;
         todoItemPriorityHeader.appendChild(todoItemPriorityValue);
 
-        this._container.appendChild(todoItemDiv);
+        this._container.appendChild(this._todoItemDiv);
+    }
+
+    removeItem() {
+        this._container.removeChild(this._todoItemDiv);
     }
 }
 

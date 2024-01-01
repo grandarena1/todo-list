@@ -29,6 +29,10 @@ const defaultProjectContainer = new Project("Default Project", "Default Descript
 defaultProjectContainer.setupUI();
 projects.push(defaultProjectContainer);
 
+//Default tasks
+const defaultTask = new TodoItem('Default name', 'Default description', 'Default date', 'Default priority');
+defaultTask.setupUI();
+
 //Form UI
 const formContainer = document.getElementsByClassName('project-form')[0];
 const projectName = document.getElementsByClassName('form-title-input')[0];
@@ -104,13 +108,15 @@ function create(action) {
 function isValid(action) {
     if(action === 'project') {
         if(projectName.value.length >= 1 && projectName.value.length <= 20 
-            && projectDescription.value.length >= 1 && projectDescription.value.length <= 83) {
+            && projectName.value.trim().length !== 0 && projectDescription.value.length >= 1 
+            && projectDescription.value.length <= 83 && projectDescription.value.trim().length !== 0) {
             return true;
         }
     }
     else if(action === 'task') {
         if(taskName.value.length >= 1 && taskName.value.length <= 20 
-            && taskDescription.value.length >= 1 && taskDescription.value.length <= 83
+            && taskName.value.trim().length !== 0 && taskDescription.value.length >= 1 
+            && taskDescription.value.length <= 83 && taskDescription.value.trim().length !== 0
             && taskDate.value && taskPriority.value) {
         return true;
         }
