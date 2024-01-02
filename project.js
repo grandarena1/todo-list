@@ -1,4 +1,4 @@
-import { projects } from "./app.js";
+import { selectedProject, setSelectedProject, projects } from "./app.js";
 
 class Project {
     constructor(name, description) {
@@ -9,6 +9,8 @@ class Project {
         this._currentProjectContainer = document.createElement('div');
         this._projectContainer = document.createElement('div');
         this._projectRemoveButton = document.createElement('i');
+        this._todoContainer = document.getElementsByClassName('todo-items-container')[0];
+        this._items = [];
     }
 
     get name() {
@@ -21,6 +23,10 @@ class Project {
     
     get container() {
         return this._projectContainer;
+    }
+
+    get items() {
+        return this._items;
     }
 
     setupUI() {
@@ -59,19 +65,68 @@ class Project {
         this._container.prepend(this._projectContainer);
     }
 
-    changeProject() {
+    /*changeProject() {
         if(projects.length > 0) {
             for(let i = 0; i < projects.length; i++) {
                 projects[i].container.classList.remove('highlighted');
                 projects[i]._currentProjectContainer.classList.add('hidden');;
+
+                projects[i]._todoContainer.querySelectorAll('.todo-item').forEach(item => {
+                    item.classList.add('hidden');
+                });
             }
-            
+
+            if(this._items.length > 0) {
+                this._items.forEach(item => {
+                    item.classList.remove('hidden');
+                });
+                console.log('wogger');
+            }
+
             this._projectContainer.classList.add('highlighted');
             this._currentProjectContainer.classList.remove('hidden');
         }
 
-        console.log('Active project: ' + this._name);
-    }
+        setSelectedProject(this);
+        console.log('Active project: ' + selectedProject._name);
+    }*/
+
+    changeProject() {
+        if (projects.length > 0) {
+            for (let i = 0; i < projects.length; i++) {
+                console.log('Processing project:', projects[i].name);
+                
+                projects[i].container.classList.remove('highlighted');
+    
+                if (projects[i]._currentProjectContainer) {
+                    projects[i]._currentProjectContainer.classList.add('hidden');
+    
+                    if (projects[i]._todoContainer) {
+                        projects[i]._todoContainer.querySelectorAll('.todo-item').forEach(item => {
+                            item.classList.add('hidden');
+                        });
+                    } else {
+                        console.error('Todo container is undefined for project:', projects[i].name);
+                    }
+                } else {
+                    console.error('Current project container is undefined for project:', projects[i].name);
+                }
+            }
+    
+            if (this._items.length > 0) {
+                this._items.forEach(item => {
+                    item.classList.remove('hidden');
+                });
+                console.log('wogger');
+            }
+    
+            this._projectContainer.classList.add('highlighted');
+            this._currentProjectContainer.classList.remove('hidden');
+        }
+    
+        setSelectedProject(this);
+        console.log('Active project: ' + selectedProject._name);
+    }    
 
     removeProject() {
         this._container.removeChild(this._projectContainer);

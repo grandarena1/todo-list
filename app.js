@@ -29,10 +29,6 @@ const defaultProjectContainer = new Project("Default Project", "Default Descript
 defaultProjectContainer.setupUI();
 projects.push(defaultProjectContainer);
 
-//Default tasks
-const defaultTask = new TodoItem('Default name', 'Default description', 'Default date', 'Default priority');
-defaultTask.setupUI();
-
 //Form UI
 const formContainer = document.getElementsByClassName('project-form')[0];
 const projectName = document.getElementsByClassName('form-title-input')[0];
@@ -45,8 +41,12 @@ const taskDate = document.getElementsByClassName('form-task-date-input')[0];
 const taskPriority = document.getElementsByClassName('form-task-priority-input')[0];
 
 //Initialisation
-console.log(projects.length);
+let selectedProject = defaultProjectContainer;
 defaultProjectContainer.changeProject();
+
+function setSelectedProject(project) {
+    selectedProject = project;
+}
 
 //Form functions
 function displayForm(action) {
@@ -94,7 +94,8 @@ function create(action) {
     }
     else if(action === 'task') {
         if(isValid('task')) {
-            const newTask = new TodoItem(taskName.value, taskDescription.value, taskDate.value, taskPriority.value);
+            const newTask = new TodoItem(taskName.value, taskDescription.value, taskDate.value, taskPriority.value, selectedProject);
+            //newTask.items.push(newTask);
             newTask.setupUI();
             console.log('Created new task: ' + newTask.name + ' / ' + newTask.description + ' / ' + newTask._date + ' / ' + newTask.priority);
             hideForm('task');
@@ -125,4 +126,4 @@ function isValid(action) {
     }
 }
 
-export { projects };
+export { projects, selectedProject, setSelectedProject };

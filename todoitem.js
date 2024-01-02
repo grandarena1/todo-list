@@ -1,11 +1,12 @@
 class TodoItem {
-    constructor(name, description, date, priority) {
+    constructor(name, description, date, priority, project) {
         this._name = name;
         this._description = description;
         this._date = date;
         this._priority = priority;
+        this._project = project;
 
-        this._container = document.getElementsByClassName('todo-items-container')[0];
+        this._container = project._todoContainer;
         this._todoItemDiv = document.createElement('div');
     }
 
@@ -23,6 +24,10 @@ class TodoItem {
 
     get priority() {
         return this._priority;
+    }
+
+    get project() {
+        return this._project;
     }
 
     setupUI() {
@@ -79,10 +84,21 @@ class TodoItem {
         todoItemPriorityHeader.appendChild(todoItemPriorityValue);
 
         this._container.appendChild(this._todoItemDiv);
+
+        this._project.items.push(this);
+        console.log('Current TODO items: ', this._project.items.length);
     }
 
     removeItem() {
         this._container.removeChild(this._todoItemDiv);
+
+        const index = this.items.indexOf(this);
+
+        if (index !== -1) {
+            this._project.items.splice(index, 1);
+        }
+
+        console.log('Current TODO items: ', this._items.length);
     }
 }
 
