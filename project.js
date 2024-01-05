@@ -65,7 +65,7 @@ class Project {
         this._container.prepend(this._projectContainer);
     }
 
-    /*changeProject() {
+    changeProject() {
         if(projects.length > 0) {
             for(let i = 0; i < projects.length; i++) {
                 projects[i].container.classList.remove('highlighted');
@@ -76,57 +76,20 @@ class Project {
                 });
             }
 
-            if(this._items.length > 0) {
-                this._items.forEach(item => {
-                    item.classList.remove('hidden');
-                });
-                console.log('wogger');
-            }
-
             this._projectContainer.classList.add('highlighted');
             this._currentProjectContainer.classList.remove('hidden');
         }
 
         setSelectedProject(this);
-        console.log('Active project: ' + selectedProject._name);
-    }*/
 
-    changeProject() {
-        if (projects.length > 0) {
-            for (let i = 0; i < projects.length; i++) {
-                console.log('Processing project:', projects[i].name);
-                
-                projects[i].container.classList.remove('highlighted');
-    
-                if (projects[i]._currentProjectContainer) {
-                    projects[i]._currentProjectContainer.classList.add('hidden');
-    
-                    if (projects[i]._todoContainer) {
-                        projects[i]._todoContainer.querySelectorAll('.todo-item').forEach(item => {
-                            item.classList.add('hidden');
-                        });
-                    } else {
-                        console.error('Todo container is undefined for project:', projects[i].name);
-                    }
-                } else {
-                    console.error('Current project container is undefined for project:', projects[i].name);
-                }
-            }
-    
-            if (this._items.length > 0) {
-                this._items.forEach(item => {
-                    item.classList.remove('hidden');
-                });
-                console.log('wogger');
-            }
-    
-            this._projectContainer.classList.add('highlighted');
-            this._currentProjectContainer.classList.remove('hidden');
+        if(selectedProject === this) {
+            this._items.forEach(item => {
+                item.enableContainer(true);
+            });
         }
-    
-        setSelectedProject(this);
+
         console.log('Active project: ' + selectedProject._name);
-    }    
+    } 
 
     removeProject() {
         this._container.removeChild(this._projectContainer);

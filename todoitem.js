@@ -30,6 +30,15 @@ class TodoItem {
         return this._project;
     }
 
+    enableContainer(state) {
+        if(state === true) {
+            this._todoItemDiv.classList.remove('hidden');
+        }
+        else {
+            this._todoItemDiv.classList.add('hidden');
+        }
+    }
+
     setupUI() {
         this._todoItemDiv.classList.add('todo-item');
 
