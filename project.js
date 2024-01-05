@@ -105,6 +105,10 @@ class Project {
             this.changeProject(projects[nextProjectIndex]);
         }
 
+        this._items.forEach(item => {
+            item.removeItem();
+        });
+
         console.log('Removed project: ' + this._name);
         console.log('Current projects: ' + projects.length);
     }
