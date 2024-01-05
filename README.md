@@ -1,7 +1,7 @@
 # todo-list
-Simple todo list app
 
+Simple Todo-List
+This app serves as a basic to-do list created as part of a module in The Odin Project
 
-TODO:
-
-*Switching projects should display the correct tasks
+Description
+The to-do list comes with the essential features, including the ability to create multiple projects and tasks that are unique to their projects, and the option to delete projects or tasks.
