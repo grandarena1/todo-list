@@ -95,13 +95,12 @@ function create(action) {
     else if(action === 'task') {
         if(isValid('task')) {
             const newTask = new TodoItem(taskName.value, taskDescription.value, taskDate.value, taskPriority.value, selectedProject);
-            //newTask.items.push(newTask);
             newTask.setupUI();
             console.log('Created new task: ' + newTask.name + ' / ' + newTask.description + ' / ' + newTask._date + ' / ' + newTask.priority);
             hideForm('task');
         }
         else {
-            alert('please doob');
+            alert('Please make sure all field are filled in');
         }
     }
 }
