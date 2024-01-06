@@ -89,7 +89,7 @@ function create(action) {
             console.log('Current projects: ' + projects.length);
         }
         else {
-            alert('please doob');
+            alert('Please make sure all field are filled in');
         }
     }
     else if(action === 'task') {
