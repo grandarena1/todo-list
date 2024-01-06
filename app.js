@@ -89,7 +89,7 @@ function create(action) {
             console.log('Current projects: ' + projects.length);
         }
         else {
-            alert('Please make sure all field are filled in');
+            alert('Please make sure all fields are filled in');
         }
     }
     else if(action === 'task') {
@@ -100,7 +100,7 @@ function create(action) {
             hideForm('task');
         }
         else {
-            alert('Please make sure all field are filled in');
+            alert('Please make sure all fields are filled in');
         }
     }
 }
